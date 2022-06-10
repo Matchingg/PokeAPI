@@ -5,8 +5,9 @@ export default function RandomPokemon() {
   const [loading, setLoading] = useState(true);
   const [maxId, setMaxId] = useState(0);
   const [randomId, setRandomId] = useState("");
-  const [pokemonSprite, setPokemonSprite] = useState("");
   const [pokemonName, setPokemonName] = useState("");
+  const [pokemonSprite, setPokemonSprite] = useState("");
+  const [pokemonStatTotal, setPokemonStatTotal] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -40,6 +41,11 @@ export default function RandomPokemon() {
         setLoading(false);
         setPokemonName(res.data.name);
         setPokemonSprite(res.data.sprites.front_default);
+        let statTotal = 0;
+        for (let i = 0; i < res.data.stats.length; i++) {
+          statTotal += res.data.stats[i].base_stat;
+        }
+        setPokemonStatTotal(statTotal);
       });
     return () => cancel();
   }, [randomId]);
@@ -55,6 +61,7 @@ export default function RandomPokemon() {
       <div>
         <img src={pokemonSprite} alt={pokemonName} />
       </div>
+      <div>{pokemonStatTotal}</div>
       <button onClick={generateRandom}>Generate New Pokemon</button>
     </>
   );
