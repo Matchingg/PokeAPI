@@ -51,9 +51,9 @@ export default function RandomPokemon() {
       <div>
         <h1>Pokemon Generator</h1>
       </div>
-      <div>{pokemonName.toUpperCase()}</div>
+      <div>{pokemonName}</div>
       <div>
-        <img src={pokemonSprite} alt={pokemonName} height="200px" />
+        <img src={pokemonSprite} alt={pokemonName} />
       </div>
       <button onClick={generateRandom}>Generate New Pokemon</button>
     </>
