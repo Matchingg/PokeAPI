@@ -2,9 +2,9 @@ import React from "react";
 import RandomPokemon from "./components/RandomPokemon";
 
 export function App() {
-  //   const [currentPokemon, setCurrentPokemon] = useState("");
   return (
     <>
+      <h1>Higher or Lower?</h1>
       <RandomPokemon />
     </>
   );
