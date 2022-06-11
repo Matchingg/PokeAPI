@@ -100,12 +100,12 @@ export default function RandomPokemon() {
         <div>
           <img src={pokemonSprite} alt={pokemonName} />
         </div>
-        <div>{pokemonStatTotal}</div>
+        {/* <div>{pokemonStatTotal}</div> */}
         <div>{pokemonName2}</div>
         <div>
           <img src={pokemonSprite2} alt={pokemonName2} />
         </div>
-        <div>{pokemonStatTotal2}</div>
+        {/* <div>{pokemonStatTotal2}</div> */}
         <div>
           <button onClick={userClickHigher}>Higher</button>
           <button onClick={userClickLower}>Lower</button>
