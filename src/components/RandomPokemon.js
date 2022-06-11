@@ -9,11 +9,13 @@ export default function RandomPokemon() {
   const [randomId2, setRandomId2] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [pokemonName2, setPokemonName2] = useState("");
-  const [pokemonSprite, setPokemonSprite] = useState("");
-  const [pokemonSprite2, setPokemonSprite2] = useState("");
+  const [pokemonSprite, setPokemonSprite] = useState();
+  const [pokemonSprite2, setPokemonSprite2] = useState();
   const [pokemonStatTotal, setPokemonStatTotal] = useState(null);
   const [pokemonStatTotal2, setPokemonStatTotal2] = useState(null);
   const [compareStats, setCompareStats] = useState([]);
+
+  const [userGuess, setUserGuess] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -85,9 +87,16 @@ export default function RandomPokemon() {
 
   useEffect(() => {
     if (compareStats.length === 2) {
-      console.log(compareStats, 2);
     }
   }, [compareStats]);
+
+  function userClickHigher() {
+    HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "higher");
+  }
+
+  function userClickLower() {
+    HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "lower");
+  }
 
   if (loading) return "Loading...";
 
@@ -105,7 +114,8 @@ export default function RandomPokemon() {
         </div>
         <div>{pokemonStatTotal2}</div>
         <div>
-          <HigherOrLower statTotal={(pokemonStatTotal, pokemonStatTotal2)} />
+          <button onClick={userClickHigher}>Higher</button>
+          <button onClick={userClickLower}>Lower</button>
         </div>
         <button onClick={generateRandom}>Generate New Pokemon</button>
       </div>
