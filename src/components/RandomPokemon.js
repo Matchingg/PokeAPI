@@ -15,8 +15,6 @@ export default function RandomPokemon() {
   const [pokemonStatTotal2, setPokemonStatTotal2] = useState(null);
   const [compareStats, setCompareStats] = useState([]);
 
-  const [userGuess, setUserGuess] = useState("");
-
   useEffect(() => {
     setLoading(true);
     const allPokemonCall = "https://pokeapi.co/api/v2/pokemon-species/?limit=0";
@@ -84,11 +82,6 @@ export default function RandomPokemon() {
       [...compareStats, pokemonStatTotal2].filter((x) => x !== false)
     );
   }, [pokemonStatTotal2]);
-
-  useEffect(() => {
-    if (compareStats.length === 2) {
-    }
-  }, [compareStats]);
 
   function userClickHigher() {
     HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "higher");
