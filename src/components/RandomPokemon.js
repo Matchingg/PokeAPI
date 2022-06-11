@@ -75,13 +75,13 @@ export default function RandomPokemon() {
     setCompareStats(
       [...compareStats, pokemonStatTotal].filter((x) => x !== false)
     );
-  }, [pokemonStatTotal]);
+  }, [pokemonStatTotal, compareStats]);
 
   useEffect(() => {
     setCompareStats(
       [...compareStats, pokemonStatTotal2].filter((x) => x !== false)
     );
-  }, [pokemonStatTotal2]);
+  }, [pokemonStatTotal2, compareStats]);
 
   function userClickHigher() {
     HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "higher");
