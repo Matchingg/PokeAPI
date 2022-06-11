@@ -11,8 +11,8 @@ export default function RandomPokemon() {
   const [pokemonName2, setPokemonName2] = useState("");
   const [pokemonSprite, setPokemonSprite] = useState("");
   const [pokemonSprite2, setPokemonSprite2] = useState("");
-  const [pokemonStatTotal, setPokemonStatTotal] = useState(0);
-  const [pokemonStatTotal2, setPokemonStatTotal2] = useState(0);
+  const [pokemonStatTotal, setPokemonStatTotal] = useState(null);
+  const [pokemonStatTotal2, setPokemonStatTotal2] = useState(null);
   const [compareStats, setCompareStats] = useState([]);
 
   useEffect(() => {
@@ -72,12 +72,14 @@ export default function RandomPokemon() {
   }, [randomId, randomId2]);
 
   useEffect(() => {
-    setCompareStats([...compareStats, pokemonStatTotal].filter((x) => x !== 0));
+    setCompareStats(
+      [...compareStats, pokemonStatTotal].filter((x) => x !== false)
+    );
   }, [pokemonStatTotal]);
 
   useEffect(() => {
     setCompareStats(
-      [...compareStats, pokemonStatTotal2].filter((x) => x !== 0)
+      [...compareStats, pokemonStatTotal2].filter((x) => x !== false)
     );
   }, [pokemonStatTotal2]);
 
@@ -92,7 +94,6 @@ export default function RandomPokemon() {
   return (
     <>
       <div>
-        <HigherOrLower statTotal={pokemonStatTotal} />
         <div>{pokemonName}</div>
         <div>
           <img src={pokemonSprite} alt={pokemonName} />
@@ -103,6 +104,9 @@ export default function RandomPokemon() {
           <img src={pokemonSprite2} alt={pokemonName2} />
         </div>
         <div>{pokemonStatTotal2}</div>
+        <div>
+          <HigherOrLower statTotal={(pokemonStatTotal, pokemonStatTotal2)} />
+        </div>
         <button onClick={generateRandom}>Generate New Pokemon</button>
       </div>
     </>
