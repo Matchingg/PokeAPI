@@ -102,6 +102,16 @@ export default function App() {
     generateRandom();
   }
 
+  function showBaseStats() {
+    return (
+      <>
+        <div>
+          {pokemonStatTotal} vs {pokemonStatTotal2}
+        </div>
+      </>
+    );
+  }
+
   useEffect(() => {
     if (outcome[0] === true) {
       setScore((prevState) => prevState + 1);
@@ -123,12 +133,10 @@ export default function App() {
         <div>
           <img src={pokemonSprite} alt={pokemonName} />
         </div>
-        {/* <div>{pokemonStatTotal}</div> */}
         <div>{pokemonName2}</div>
         <div>
           <img src={pokemonSprite2} alt={pokemonName2} />
         </div>
-        {/* <div>{pokemonStatTotal2}</div> */}
         <div>
           <button onClick={userClickHigher}>Higher</button>
           <button onClick={userClickLower}>Lower</button>
