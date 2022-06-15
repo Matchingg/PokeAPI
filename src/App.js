@@ -4,7 +4,9 @@ import HigherOrLower from "./components/HigherOrLower";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  // variable for highest id from pokeapi
   const [maxId, setMaxId] = useState(0);
+  // variables for pokemon information
   const [randomId, setRandomId] = useState("");
   const [randomId2, setRandomId2] = useState("");
   const [pokemonName, setPokemonName] = useState("");
@@ -13,10 +15,14 @@ export default function App() {
   const [pokemonSprite2, setPokemonSprite2] = useState();
   const [pokemonStatTotal, setPokemonStatTotal] = useState(null);
   const [pokemonStatTotal2, setPokemonStatTotal2] = useState(null);
+  // list of two stats to compare
   const [compareStats, setCompareStats] = useState([]);
+  // list of outcomes with most recent at head
   const [outcome, setOutcome] = useState([]);
+  // score counter
   const [score, setScore] = useState(0);
 
+  // finds the highest id from pokeapi
   useEffect(() => {
     setLoading(true);
     const allPokemonCall = "https://pokeapi.co/api/v2/pokemon-species/?limit=0";
@@ -33,12 +39,14 @@ export default function App() {
     return () => cancel();
   }, []);
 
+  // generates two random ids
   function generateRandom() {
     setCompareStats([]);
     setRandomId(Math.floor(Math.random() * maxId) + 1);
     setRandomId2(Math.floor(Math.random() * maxId) + 1);
   }
 
+  // uses random ids to populate pokemon information
   function generateUsingId(Id, num) {
     const PokemonIdCall = `https://pokeapi.co/api/v2/pokemon/${Id}`;
     let cancel;
@@ -68,23 +76,27 @@ export default function App() {
     return () => cancel();
   }
 
+  // generates new pokemon when random ids change
   useEffect(() => {
     generateUsingId(randomId, 1);
     generateUsingId(randomId2, 2);
   }, [randomId, randomId2]);
 
+  // creates list of two stats to compare
   useEffect(() => {
     setCompareStats(
       [...compareStats, pokemonStatTotal].filter((x) => x !== false)
     );
   }, []);
 
+  // creates list of two stats to compare
   useEffect(() => {
     setCompareStats(
       [...compareStats, pokemonStatTotal2].filter((x) => x !== false)
     );
   }, []);
 
+  // generates the outcome once the higher button has been clicked
   function userClickHigher() {
     setOutcome([
       HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "higher"),
@@ -93,6 +105,7 @@ export default function App() {
     generateRandom();
   }
 
+  // generates the outcome once the lower button has been clicked
   function userClickLower() {
     setOutcome([
       HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "lower"),
@@ -111,6 +124,7 @@ export default function App() {
     );
   }
 
+  // score counter
   useEffect(() => {
     if (outcome[0] === true) {
       setScore((prevState) => prevState + 1);
