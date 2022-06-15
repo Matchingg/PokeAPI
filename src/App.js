@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HigherOrLower from "./components/HigherOrLower";
-import Difficulty from "./components/Difficulty";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
