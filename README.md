@@ -7,9 +7,9 @@ base stat totals? Play now!
 
 # Functionality
 
-- Create an easy, medium, and hard mode (easy = any range, medium = 200, hard
-  = 50)
 - Make the base stats appear after a guess has been made
+- Make Generate Random Button disappear and Higher or Lower buttons disappear
+  after clicked
 
 # Appearance
 

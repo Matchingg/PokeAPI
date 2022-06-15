@@ -125,9 +125,6 @@ export default function App() {
   return (
     <>
       <div>
-        <div>
-          <Difficulty />
-        </div>
         <div>Score: {score}</div>
         <div>{pokemonName}</div>
         <div>
