@@ -137,20 +137,28 @@ export default function App() {
 
   return (
     <>
-      <div>
-        <div>Score: {score}</div>
-        <div>{pokemonName}</div>
-        <div>
-          <img src={pokemonSprite} alt={pokemonName} />
+      <div className="score">Score: {score}</div>
+      <div className="container">
+        <div className="pokemon">
+          <div className="pokemon-name">{pokemonName}</div>
+          <div className="pokemon-sprite">
+            <img src={pokemonSprite} alt={pokemonName} width="250px" />
+          </div>
         </div>
-        <div>{pokemonName2}</div>
-        <div>
-          <img src={pokemonSprite2} alt={pokemonName2} />
+        <div className="pokemon">
+          <button onClick={userClickHigher} className="higher-button">
+            Higher
+          </button>
+          <div className="pokemon-name">{pokemonName2}</div>
+          <div className="pokemon-sprite">
+            <img src={pokemonSprite2} alt={pokemonName2} width="250px" />
+          </div>
+          <button onClick={userClickLower} className="lower-button">
+            Lower
+          </button>
         </div>
-        <div>
-          <button onClick={userClickHigher}>Higher</button>
-          <button onClick={userClickLower}>Lower</button>
-        </div>
+      </div>
+      <div className="generate-random-button">
         <button onClick={generateRandom}>Generate New Pokemon</button>
       </div>
     </>

@@ -1,0 +1,34 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.score {
+  text-align: center;
+}
+
+.pokemon {
+  width: 50%;
+  text-align: center;
+  align-items: center;
+}
+
+.pokemon-name {
+}
+
+.pokemon-sprite {
+}
+
+.higher-lower-button {
+}
+
+.generate-random-button {
+  text-align: center;
+}
