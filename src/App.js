@@ -87,14 +87,14 @@ export default function App() {
     setCompareStats(
       [...compareStats, pokemonStatTotal].filter((x) => x !== false)
     );
-  }, []);
+  }, [compareStats, pokemonStatTotal]);
 
   // creates list of two stats to compare
   useEffect(() => {
     setCompareStats(
       [...compareStats, pokemonStatTotal2].filter((x) => x !== false)
     );
-  }, []);
+  }, [compareStats, pokemonStatTotal2]);
 
   // generates the outcome once the higher button has been clicked
   function userClickHigher() {
@@ -114,15 +114,15 @@ export default function App() {
     generateRandom();
   }
 
-  function showBaseStats() {
-    return (
-      <>
-        <div>
-          {pokemonStatTotal} vs {pokemonStatTotal2}
-        </div>
-      </>
-    );
-  }
+  // function showBaseStats() {
+  //   return (
+  //     <>
+  //       <div>
+  //         {pokemonStatTotal} vs {pokemonStatTotal2}
+  //       </div>
+  //     </>
+  //   );
+  // }
 
   // score counter
   useEffect(() => {
