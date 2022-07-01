@@ -15,8 +15,6 @@ base stat totals? Play now!
 
 - Title, buttons, pokemon names
 - Correct screen, incorrect screen
-- Divide into two halves
-- Place higher or lower buttons above the second option
 - Favicon icon
 - Score
 - cont.
