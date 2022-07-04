@@ -180,7 +180,7 @@ export default function App() {
       </div>
       {!showButtons && (
         <div className="generate-random-button">
-          <button onClick={() => generateRandom()}>Generate New Pokemon</button>
+          <button onClick={() => generateRandom()}>Start Game</button>
         </div>
       )}
     </>
