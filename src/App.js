@@ -21,6 +21,8 @@ export default function App() {
   const [outcome, setOutcome] = useState([]);
   // score counter
   const [score, setScore] = useState(0);
+  // show higher, lower buttons and hide generate new pokemon
+  const [showButtons, setShowButtons] = useState(false);
 
   // finds the highest id from pokeapi
   useEffect(() => {
@@ -44,6 +46,7 @@ export default function App() {
     setCompareStats([]);
     setRandomId(Math.floor(Math.random() * maxId) + 1);
     setRandomId2(Math.floor(Math.random() * maxId) + 1);
+    setShowButtons(true);
   }
 
   // uses random ids to populate pokemon information
@@ -146,21 +149,27 @@ export default function App() {
           </div>
         </div>
         <div className="pokemon">
-          <button onClick={userClickHigher} className="higher-button">
-            Higher
-          </button>
+          {showButtons && (
+            <button onClick={userClickHigher} className="higher-button">
+              Higher
+            </button>
+          )}
           <div className="pokemon-name">{pokemonName2}</div>
           <div className="pokemon-sprite">
             <img src={pokemonSprite2} alt={pokemonName2} width="250px" />
           </div>
-          <button onClick={userClickLower} className="lower-button">
-            Lower
-          </button>
+          {showButtons && (
+            <button onClick={userClickLower} className="lower-button">
+              Lower
+            </button>
+          )}
         </div>
       </div>
-      <div className="generate-random-button">
-        <button onClick={generateRandom}>Generate New Pokemon</button>
-      </div>
+      {!showButtons && (
+        <div className="generate-random-button">
+          <button onClick={() => generateRandom()}>Generate New Pokemon</button>
+        </div>
+      )}
     </>
   );
 }
