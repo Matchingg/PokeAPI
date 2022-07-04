@@ -23,6 +23,8 @@ export default function App() {
   const [score, setScore] = useState(0);
   // show higher, lower buttons and hide generate new pokemon
   const [showButtons, setShowButtons] = useState(false);
+  // show base stats
+  const [showStats, setShowStats] = useState(false);
 
   // finds the highest id from pokeapi
   useEffect(() => {
@@ -44,6 +46,7 @@ export default function App() {
   // generates two random ids
   function generateRandom() {
     setCompareStats([]);
+    setShowStats(false);
     setRandomId(Math.floor(Math.random() * maxId) + 1);
     setRandomId2(Math.floor(Math.random() * maxId) + 1);
     setShowButtons(true);
@@ -105,7 +108,8 @@ export default function App() {
       HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "higher"),
       ...outcome,
     ]);
-    generateRandom();
+    setShowStats(true);
+    setTimeout(generateRandom, 2000);
   }
 
   // generates the outcome once the lower button has been clicked
@@ -114,18 +118,9 @@ export default function App() {
       HigherOrLower(pokemonStatTotal, pokemonStatTotal2, "lower"),
       ...outcome,
     ]);
-    generateRandom();
+    setShowStats(true);
+    setTimeout(generateRandom, 2000);
   }
-
-  // function showBaseStats() {
-  //   return (
-  //     <>
-  //       <div>
-  //         {pokemonStatTotal} vs {pokemonStatTotal2}
-  //       </div>
-  //     </>
-  //   );
-  // }
 
   // score counter
   useEffect(() => {
@@ -147,10 +142,11 @@ export default function App() {
           <div className="pokemon-sprite">
             <img src={pokemonSprite} alt={pokemonName} width="250px" />
           </div>
+          {showStats && <div>{pokemonStatTotal}</div>}
         </div>
         <div className="pokemon">
           {showButtons && (
-            <button onClick={userClickHigher} className="higher-button">
+            <button onClick={() => userClickHigher()} className="higher-button">
               Higher
             </button>
           )}
@@ -158,8 +154,9 @@ export default function App() {
           <div className="pokemon-sprite">
             <img src={pokemonSprite2} alt={pokemonName2} width="250px" />
           </div>
+          {showStats && <div>{pokemonStatTotal2}</div>}
           {showButtons && (
-            <button onClick={userClickLower} className="lower-button">
+            <button onClick={() => userClickLower()} className="lower-button">
               Lower
             </button>
           )}

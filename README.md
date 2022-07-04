@@ -7,10 +7,6 @@ base stat totals? Play now!
 
 # Functionality
 
-- Make the base stats appear after a guess has been made
-- Make Generate Random Button disappear and Higher or Lower buttons disappear
-  after clicked
-
 # Appearance
 
 - Title, buttons, pokemon names
