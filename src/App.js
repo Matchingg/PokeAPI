@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HigherOrLower from "./components/HigherOrLower";
+import Instructions from "./components/Instructions";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -136,6 +137,12 @@ export default function App() {
   return (
     <>
       {showButtons && <div className="score">Score: {score}</div>}
+      {!showButtons && <Instructions />}
+      {!showButtons && (
+        <div className="generate-random-button">
+          <button onClick={() => generateRandom()}>Start Game</button>
+        </div>
+      )}
       <div className="container">
         <div className="pokemon">
           <div className="pokemon-name">{pokemonName}</div>
@@ -178,11 +185,6 @@ export default function App() {
           )}
         </div>
       </div>
-      {!showButtons && (
-        <div className="generate-random-button">
-          <button onClick={() => generateRandom()}>Start Game</button>
-        </div>
-      )}
     </>
   );
 }
