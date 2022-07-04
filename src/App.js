@@ -135,7 +135,7 @@ export default function App() {
 
   return (
     <>
-      <div className="score">Score: {score}</div>
+      {showButtons && <div className="score">Score: {score}</div>}
       <div className="container">
         <div className="pokemon">
           <div className="pokemon-name">{pokemonName}</div>
