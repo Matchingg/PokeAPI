@@ -6,7 +6,5 @@ export default function HigherOrLower(statTotal1, statTotal2, userGuess) {
   ) {
     isCorrect = true;
   }
-  console.log(isCorrect);
-  alert(isCorrect);
   return isCorrect;
 }
