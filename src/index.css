@@ -30,6 +30,14 @@ h1 {
 .higher-lower-button {
 }
 
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
 .generate-random-button {
   text-align: center;
 }

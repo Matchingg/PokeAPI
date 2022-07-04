@@ -146,7 +146,11 @@ export default function App() {
               className="pokemon-sprite"
             />
           </div>
-          {showStats && <div>{pokemonStatTotal}</div>}
+          {showStats && (
+            <div className={outcome[0] ? "incorrect" : "correct"}>
+              {pokemonStatTotal}
+            </div>
+          )}
         </div>
         <div className="pokemon">
           {showButtons && (
@@ -162,7 +166,11 @@ export default function App() {
               className="pokemon-sprite"
             />
           </div>
-          {showStats && <div>{pokemonStatTotal2}</div>}
+          {showStats && (
+            <div className={outcome[0] ? "correct" : "incorrect"}>
+              {pokemonStatTotal2}
+            </div>
+          )}
           {showButtons && (
             <button onClick={() => userClickLower()} className="lower-button">
               Lower
