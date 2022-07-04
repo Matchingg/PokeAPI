@@ -139,8 +139,12 @@ export default function App() {
       <div className="container">
         <div className="pokemon">
           <div className="pokemon-name">{pokemonName}</div>
-          <div className="pokemon-sprite">
-            <img src={pokemonSprite} alt={pokemonName} width="250px" />
+          <div>
+            <img
+              src={pokemonSprite}
+              alt={pokemonName}
+              className="pokemon-sprite"
+            />
           </div>
           {showStats && <div>{pokemonStatTotal}</div>}
         </div>
@@ -151,8 +155,12 @@ export default function App() {
             </button>
           )}
           <div className="pokemon-name">{pokemonName2}</div>
-          <div className="pokemon-sprite">
-            <img src={pokemonSprite2} alt={pokemonName2} width="250px" />
+          <div>
+            <img
+              src={pokemonSprite2}
+              alt={pokemonName2}
+              className="pokemon-sprite"
+            />
           </div>
           {showStats && <div>{pokemonStatTotal2}</div>}
           {showButtons && (
