@@ -1,5 +1,13 @@
+* {
+  font-family: "Lato", sans-serif;
+}
+
 h1 {
   text-align: center;
+}
+
+body {
+  background-color: beige;
 }
 
 .container {
@@ -19,6 +27,7 @@ h1 {
 
 .score {
   text-align: center;
+  font-size: x-large;
 }
 
 .pokemon {
@@ -28,24 +37,73 @@ h1 {
 }
 
 .pokemon-name {
+  padding-top: 5%;
+  text-transform: uppercase;
 }
 
 .pokemon-sprite {
-  width: 200px;
+  width: 150px;
 }
 
-.higher-lower-button {
+@media only screen and (min-width: 500px) {
+  .pokemon-sprite {
+    width: 250px;
+  }
+}
+
+.higher-button {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 25px;
+  transition: transform 150ms, box-shadow 150ms;
+}
+
+.lower-button {
+  background-color: #e56060;
+  border: 1px solid #e56060;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 25px;
+  transition: transform 150ms, box-shadow 150ms;
 }
 
 .correct {
   color: green;
+  font-size: xx-large;
 }
 
 .incorrect {
   color: red;
+  font-size: xx-large;
 }
 
 .generate-random-button {
+  background-color: #13aa52;
+  border: 1px solid #13aa52;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 25px;
+  transition: transform 150ms, box-shadow 150ms;
+}
+
+.button_div {
   text-align: center;
   padding-top: 1%;
 }

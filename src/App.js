@@ -139,8 +139,13 @@ export default function App() {
       {showButtons && <div className="score">Score: {score}</div>}
       {!showButtons && <Instructions />}
       {!showButtons && (
-        <div className="generate-random-button">
-          <button onClick={() => generateRandom()}>Start Game</button>
+        <div className="button_div">
+          <button
+            className="generate-random-button"
+            onClick={() => generateRandom()}
+          >
+            Start Game
+          </button>
         </div>
       )}
       <div className="container">
