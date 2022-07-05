@@ -1,18 +1,8 @@
-## Pokemon Higher or Lower
+## Pokémon Higher or Lower
 
-The popular web game Pokemon edition. Does the Pokemon have the higher or lower
-base stat totals? Play now!
+The popular Higher or Lower web game Pokemon edition. Does the Pokemon have the
+higher or lower base stat totals? Play now!
 
-## TODO
+[Click here to play!](https://pokemonhigherorlower.netlify.app/)
 
-# Functionality
-
-- Change size of sprite based on screen size
-
-# Appearance
-
-- Title, buttons, pokemon names
-- Correct screen, incorrect screen
-- Favicon icon
-- Score
-- cont.
+![Preview](./public/game_preview.png)
